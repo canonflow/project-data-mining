@@ -2,7 +2,28 @@
     require("./function.php");
 
     //* Error
-    $csvData = parseCsv("../files/csv/test2.csv");
+    if($_FILES['file']['name'] != ''){
+        $test = explode('.', $_FILES['file']['name']);
+        $extension = end($test);    
+        $name = rand(100,999).'.'.$extension;
+        $directory = 'uploads/';
+    
+        $location = 'uploads/'.$name;
+        
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+        move_uploaded_file($_FILES['file']['tmp_name'], $location);
+        // echo '<img src="'.$location.'" height="100" width="100" />';
+        $msg = "YES";
+    }
+
+    $csvData = parseCsv($location);
+    // $response = array("csv" => $csvData);
+    // header('Content-Type: application/json');
+    // echo json_encode($response);
+    // return;
+    
     $classes = getClasses($csvData);
     $attributes = getAttributes();
     // $gender = parseAttribute($csvData, "gender");

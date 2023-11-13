@@ -1,0 +1,1001 @@
+Department,Gender,Country,Status
+IT,Female,United States,Divorced
+IT,Male,China,Married
+Finance,Female,United States,Divorced
+IT,Female,United States,Married
+Finance,Male,United States,Married
+Sales,Male,China,Divorced
+IT,Female,United States,Married
+Finance,Male,United States,Single
+Accounting,Male,United States,Single
+Finance,Female,United States,Single
+Human Resources,Female,United States,Married
+Engineering,Female,United States,Divorced
+Human Resources,Male,United States,Single
+Finance,Female,China,Divorced
+Accounting,Male,United States,Married
+Marketing,Female,United States,Divorced
+Finance,Female,United States,Divorced
+Marketing,Female,United States,Married
+IT,Male,United States,Single
+Sales,Male,China,Single
+IT,Male,Brazil,Single
+Sales,Female,United States,Married
+IT,Male,Brazil,Married
+Sales,Male,United States,Married
+Sales,Male,China,Single
+Human Resources,Male,United States,Divorced
+Engineering,Female,Brazil,Divorced
+Engineering,Male,United States,Divorced
+Engineering,Male,China,Single
+IT,Male,China,Single
+IT,Male,United States,Married
+Finance,Male,Brazil,Divorced
+Sales,Male,United States,Divorced
+Sales,Male,China,Married
+Finance,Female,United States,Married
+IT,Female,United States,Married
+Engineering,Female,China,Single
+Marketing,Male,United States,Divorced
+IT,Female,United States,Married
+IT,Female,Brazil,Single
+Human Resources,Male,China,Divorced
+Marketing,Female,United States,Married
+IT,Male,United States,Divorced
+Sales,Male,China,Married
+Marketing,Female,United States,Divorced
+IT,Male,United States,Married
+IT,Male,United States,Single
+IT,Female,United States,Single
+Engineering,Male,United States,Married
+Engineering,Female,United States,Married
+Human Resources,Female,United States,Single
+Marketing,Female,United States,Divorced
+IT,Female,China,Married
+Marketing,Male,United States,Married
+Accounting,Female,United States,Divorced
+Engineering,Female,United States,Single
+Engineering,Female,United States,Divorced
+Engineering,Female,United States,Married
+Human Resources,Female,United States,Single
+Marketing,Male,China,Married
+IT,Female,Brazil,Single
+Accounting,Female,Brazil,Single
+Engineering,Female,United States,Single
+Human Resources,Male,United States,Divorced
+Finance,Female,United States,Married
+Sales,Female,United States,Married
+Human Resources,Female,United States,Divorced
+Marketing,Female,United States,Divorced
+IT,Female,United States,Single
+IT,Female,United States,Divorced
+Engineering,Male,United States,Single
+Finance,Female,United States,Divorced
+Accounting,Female,Brazil,Married
+Engineering,Male,United States,Single
+Marketing,Male,Brazil,Divorced
+IT,Male,Brazil,Single
+Engineering,Female,China,Single
+IT,Male,China,Divorced
+Finance,Male,United States,Divorced
+Finance,Male,United States,Married
+Marketing,Male,United States,Divorced
+Engineering,Male,United States,Single
+Engineering,Male,United States,Single
+Engineering,Female,Brazil,Divorced
+Accounting,Male,United States,Single
+Human Resources,Female,China,Divorced
+Human Resources,Male,China,Divorced
+IT,Female,Brazil,Divorced
+IT,Female,Brazil,Divorced
+IT,Male,United States,Single
+Marketing,Male,China,Married
+Finance,Female,China,Divorced
+Finance,Female,Brazil,Married
+Sales,Male,United States,Married
+Human Resources,Male,United States,Married
+Sales,Female,United States,Single
+Finance,Female,China,Divorced
+IT,Female,Brazil,Divorced
+IT,Male,China,Single
+Sales,Female,United States,Divorced
+Engineering,Female,United States,Divorced
+IT,Female,United States,Married
+Engineering,Male,United States,Married
+Human Resources,Female,China,Married
+Accounting,Male,United States,Married
+Finance,Male,United States,Divorced
+Engineering,Female,United States,Single
+Engineering,Female,United States,Single
+Engineering,Male,United States,Divorced
+Finance,Male,United States,Married
+Sales,Female,China,Divorced
+IT,Female,China,Single
+IT,Female,United States,Divorced
+Sales,Female,United States,Single
+Sales,Male,United States,Married
+Human Resources,Male,United States,Single
+IT,Female,United States,Married
+Finance,Female,Brazil,Married
+Marketing,Female,United States,Single
+Finance,Male,China,Married
+IT,Female,United States,Married
+Finance,Female,United States,Single
+IT,Male,United States,Divorced
+Marketing,Female,United States,Divorced
+Finance,Female,China,Married
+Engineering,Female,United States,Married
+Marketing,Female,China,Single
+IT,Female,United States,Single
+Engineering,Male,China,Single
+Finance,Female,China,Single
+IT,Male,United States,Single
+Engineering,Male,Brazil,Divorced
+Human Resources,Female,United States,Married
+Sales,Female,China,Single
+Engineering,Female,Brazil,Single
+IT,Male,United States,Divorced
+Human Resources,Female,China,Divorced
+Sales,Male,Brazil,Married
+Engineering,Male,China,Single
+Engineering,Female,China,Single
+Marketing,Female,United States,Single
+Engineering,Male,United States,Divorced
+Human Resources,Female,China,Divorced
+IT,Male,China,Single
+IT,Male,United States,Married
+Human Resources,Male,China,Divorced
+Sales,Female,United States,Single
+Engineering,Male,United States,Married
+IT,Male,China,Divorced
+IT,Female,United States,Divorced
+Engineering,Male,Brazil,Divorced
+Sales,Female,United States,Single
+Finance,Male,China,Single
+IT,Female,United States,Married
+IT,Female,United States,Married
+IT,Male,China,Divorced
+IT,Male,United States,Divorced
+Finance,Female,United States,Married
+Accounting,Male,United States,Married
+Human Resources,Female,United States,Single
+Engineering,Male,United States,Married
+Engineering,Female,United States,Married
+Sales,Male,Brazil,Divorced
+IT,Male,Brazil,Married
+Marketing,Male,China,Divorced
+Engineering,Male,United States,Divorced
+Finance,Male,United States,Divorced
+Sales,Female,United States,Married
+Accounting,Female,United States,Married
+Sales,Female,United States,Divorced
+Human Resources,Female,Brazil,Single
+IT,Male,China,Single
+Human Resources,Male,United States,Married
+Accounting,Female,United States,Married
+IT,Male,United States,Divorced
+Marketing,Female,United States,Divorced
+Marketing,Male,United States,Single
+Finance,Female,China,Divorced
+Finance,Female,United States,Married
+Marketing,Male,United States,Divorced
+IT,Female,United States,Divorced
+Marketing,Female,China,Married
+Marketing,Male,United States,Divorced
+IT,Female,China,Divorced
+IT,Male,China,Single
+IT,Male,China,Married
+IT,Male,Brazil,Single
+Marketing,Male,Brazil,Single
+Human Resources,Male,Brazil,Single
+Human Resources,Male,United States,Single
+Sales,Male,United States,Divorced
+Sales,Female,China,Divorced
+Engineering,Male,China,Married
+Sales,Female,United States,Divorced
+IT,Male,United States,Married
+Sales,Male,China,Divorced
+Marketing,Male,Brazil,Single
+Sales,Female,China,Married
+IT,Female,United States,Single
+Marketing,Female,United States,Single
+IT,Male,United States,Married
+Sales,Female,United States,Divorced
+Engineering,Male,United States,Married
+Engineering,Female,United States,Single
+Engineering,Male,United States,Married
+IT,Male,United States,Single
+Engineering,Male,United States,Married
+Human Resources,Male,China,Single
+Sales,Male,United States,Married
+Accounting,Male,United States,Divorced
+Sales,Female,Brazil,Single
+Sales,Male,United States,Single
+Accounting,Male,United States,Married
+IT,Male,China,Married
+Engineering,Male,United States,Married
+Engineering,Male,Brazil,Married
+Finance,Female,United States,Married
+Marketing,Female,United States,Divorced
+Finance,Male,Brazil,Single
+Sales,Male,United States,Married
+Engineering,Female,United States,Single
+IT,Female,China,Married
+Finance,Female,United States,Married
+Sales,Female,United States,Divorced
+IT,Female,United States,Divorced
+Sales,Female,China,Divorced
+Human Resources,Female,United States,Married
+Engineering,Male,United States,Single
+Engineering,Female,United States,Divorced
+Finance,Male,China,Married
+Human Resources,Male,United States,Divorced
+Accounting,Male,China,Divorced
+Accounting,Female,Brazil,Married
+Finance,Male,United States,Single
+Accounting,Male,United States,Divorced
+Engineering,Female,United States,Married
+Marketing,Female,United States,Single
+Sales,Female,United States,Married
+Accounting,Male,United States,Married
+Human Resources,Male,China,Divorced
+Sales,Male,Brazil,Married
+Engineering,Male,United States,Divorced
+Engineering,Male,Brazil,Single
+IT,Female,United States,Divorced
+Sales,Male,United States,Single
+Finance,Female,Brazil,Married
+Marketing,Male,United States,Divorced
+Accounting,Female,China,Married
+Sales,Female,United States,Single
+Finance,Male,Brazil,Single
+Engineering,Male,Brazil,Divorced
+Accounting,Female,United States,Divorced
+Engineering,Female,Brazil,Married
+IT,Female,United States,Divorced
+IT,Female,United States,Single
+Human Resources,Male,Brazil,Single
+Engineering,Male,United States,Divorced
+Human Resources,Female,United States,Married
+IT,Male,China,Married
+Engineering,Male,United States,Single
+Finance,Female,Brazil,Single
+Human Resources,Female,United States,Single
+Human Resources,Male,United States,Single
+Human Resources,Female,United States,Divorced
+IT,Female,United States,Divorced
+IT,Female,United States,Divorced
+IT,Female,United States,Married
+Sales,Female,United States,Single
+Engineering,Male,United States,Married
+IT,Female,Brazil,Single
+Accounting,Female,United States,Single
+Engineering,Female,United States,Divorced
+Sales,Female,United States,Single
+Human Resources,Male,United States,Married
+Accounting,Male,Brazil,Married
+Finance,Male,United States,Divorced
+Engineering,Male,United States,Single
+Accounting,Female,Brazil,Married
+Marketing,Female,Brazil,Single
+Sales,Male,United States,Married
+IT,Female,United States,Married
+IT,Male,China,Single
+Engineering,Male,Brazil,Divorced
+Finance,Male,China,Divorced
+Engineering,Male,China,Single
+Marketing,Female,China,Married
+Human Resources,Female,Brazil,Divorced
+Accounting,Female,United States,Single
+Marketing,Male,United States,Married
+IT,Female,United States,Divorced
+Engineering,Male,United States,Single
+Marketing,Female,China,Married
+Finance,Female,China,Single
+Accounting,Male,China,Married
+Engineering,Female,China,Married
+Human Resources,Female,China,Divorced
+Accounting,Male,United States,Single
+Human Resources,Female,United States,Divorced
+IT,Female,China,Married
+Sales,Female,China,Married
+Engineering,Female,United States,Single
+Accounting,Male,United States,Divorced
+Finance,Male,United States,Married
+Engineering,Female,United States,Single
+Human Resources,Male,United States,Divorced
+Finance,Male,Brazil,Divorced
+Human Resources,Female,United States,Single
+Sales,Male,United States,Single
+Marketing,Female,China,Married
+IT,Female,United States,Divorced
+Human Resources,Male,United States,Divorced
+Accounting,Male,United States,Divorced
+Sales,Female,United States,Single
+IT,Male,United States,Divorced
+Human Resources,Male,Brazil,Married
+Sales,Male,China,Married
+Accounting,Male,United States,Single
+Finance,Female,United States,Married
+IT,Male,United States,Married
+Sales,Female,United States,Single
+Engineering,Female,United States,Married
+Marketing,Male,China,Single
+Engineering,Female,United States,Single
+IT,Female,United States,Single
+Engineering,Male,United States,Married
+Finance,Female,United States,Divorced
+Sales,Male,United States,Married
+Accounting,Male,United States,Divorced
+Human Resources,Female,United States,Married
+IT,Female,China,Single
+IT,Male,United States,Single
+Sales,Female,United States,Married
+Human Resources,Male,China,Married
+Engineering,Female,China,Single
+IT,Male,United States,Married
+IT,Male,United States,Divorced
+IT,Female,United States,Divorced
+IT,Female,United States,Single
+Engineering,Female,United States,Divorced
+Engineering,Female,United States,Single
+Finance,Female,United States,Single
+IT,Male,China,Married
+Finance,Female,Brazil,Married
+Engineering,Female,United States,Divorced
+IT,Female,United States,Single
+Accounting,Male,Brazil,Divorced
+Sales,Female,Brazil,Married
+IT,Female,United States,Divorced
+Accounting,Male,United States,Single
+Human Resources,Male,China,Married
+Human Resources,Male,United States,Married
+Engineering,Female,Brazil,Single
+Marketing,Male,United States,Single
+IT,Female,China,Divorced
+Human Resources,Male,United States,Divorced
+Finance,Female,China,Married
+IT,Female,United States,Single
+Human Resources,Male,United States,Divorced
+Sales,Male,United States,Married
+Marketing,Male,United States,Divorced
+Sales,Female,Brazil,Married
+Human Resources,Female,China,Married
+Finance,Female,United States,Married
+Engineering,Female,United States,Divorced
+Accounting,Male,China,Single
+Engineering,Female,Brazil,Divorced
+Engineering,Female,Brazil,Divorced
+Finance,Male,United States,Divorced
+IT,Female,China,Divorced
+Accounting,Female,China,Divorced
+Marketing,Female,Brazil,Single
+IT,Female,United States,Single
+IT,Female,China,Divorced
+Sales,Male,China,Married
+Engineering,Male,United States,Married
+Engineering,Female,Brazil,Single
+Marketing,Female,China,Married
+Sales,Female,Brazil,Single
+IT,Male,United States,Divorced
+Engineering,Female,United States,Divorced
+IT,Female,United States,Single
+IT,Female,China,Married
+Marketing,Female,United States,Divorced
+IT,Female,United States,Divorced
+Sales,Male,United States,Single
+Accounting,Male,United States,Married
+IT,Female,Brazil,Single
+IT,Male,United States,Single
+Finance,Male,United States,Single
+Accounting,Male,China,Divorced
+Human Resources,Female,United States,Divorced
+Accounting,Male,China,Divorced
+Finance,Female,United States,Married
+IT,Male,United States,Single
+IT,Male,United States,Divorced
+Human Resources,Male,United States,Married
+Marketing,Male,China,Divorced
+IT,Male,China,Divorced
+IT,Male,United States,Married
+IT,Male,China,Divorced
+Finance,Female,United States,Married
+Engineering,Male,Brazil,Divorced
+IT,Male,United States,Married
+Accounting,Male,United States,Single
+Marketing,Male,United States,Divorced
+IT,Male,United States,Divorced
+Marketing,Male,China,Single
+Engineering,Female,United States,Divorced
+Marketing,Male,United States,Divorced
+Human Resources,Female,United States,Single
+IT,Female,United States,Married
+Engineering,Female,China,Single
+Sales,Female,United States,Divorced
+Engineering,Female,China,Married
+Engineering,Female,United States,Single
+IT,Female,United States,Married
+Finance,Female,United States,Single
+Marketing,Female,China,Single
+Accounting,Female,China,Divorced
+Sales,Male,United States,Single
+Sales,Female,United States,Married
+Accounting,Female,Brazil,Divorced
+Engineering,Male,United States,Divorced
+Sales,Female,United States,Married
+Finance,Female,United States,Single
+Accounting,Female,United States,Married
+Sales,Female,United States,Married
+Human Resources,Male,United States,Divorced
+IT,Female,China,Married
+Engineering,Male,United States,Divorced
+Marketing,Male,China,Married
+Marketing,Female,China,Divorced
+Sales,Male,United States,Single
+IT,Female,United States,Divorced
+IT,Female,United States,Single
+Human Resources,Female,China,Married
+IT,Female,China,Married
+Marketing,Male,United States,Married
+Accounting,Female,United States,Married
+Engineering,Male,Brazil,Single
+Marketing,Female,United States,Divorced
+IT,Male,China,Married
+IT,Female,United States,Single
+Engineering,Male,United States,Married
+IT,Male,China,Married
+Accounting,Female,China,Single
+Finance,Male,United States,Single
+Finance,Female,United States,Single
+IT,Female,China,Married
+Sales,Female,United States,Divorced
+Finance,Male,United States,Married
+Engineering,Female,United States,Married
+Finance,Female,Brazil,Single
+IT,Female,United States,Married
+Sales,Male,China,Married
+Engineering,Male,China,Single
+Engineering,Male,China,Married
+Marketing,Female,United States,Single
+Marketing,Male,China,Married
+Human Resources,Male,United States,Divorced
+Human Resources,Male,United States,Single
+IT,Male,United States,Divorced
+Finance,Male,United States,Single
+Marketing,Male,United States,Married
+Engineering,Male,Brazil,Married
+Engineering,Male,United States,Divorced
+IT,Female,United States,Divorced
+Engineering,Male,Brazil,Single
+Accounting,Male,United States,Married
+IT,Male,United States,Divorced
+Engineering,Female,China,Divorced
+Sales,Male,United States,Divorced
+Marketing,Male,Brazil,Divorced
+IT,Male,United States,Married
+Sales,Female,United States,Single
+Engineering,Female,Brazil,Divorced
+Accounting,Male,United States,Married
+Engineering,Female,Brazil,Single
+Finance,Male,Brazil,Single
+IT,Male,China,Single
+Sales,Male,Brazil,Divorced
+Sales,Male,United States,Divorced
+Human Resources,Female,China,Single
+IT,Male,United States,Married
+Marketing,Male,China,Married
+IT,Female,China,Single
+IT,Female,United States,Single
+Finance,Male,Brazil,Divorced
+Accounting,Female,Brazil,Divorced
+Marketing,Male,China,Divorced
+Human Resources,Female,United States,Single
+IT,Male,United States,Married
+Human Resources,Male,United States,Married
+Human Resources,Female,United States,Married
+IT,Female,United States,Divorced
+Finance,Male,China,Single
+Marketing,Female,United States,Divorced
+IT,Male,United States,Divorced
+Engineering,Female,United States,Married
+IT,Male,China,Divorced
+Accounting,Female,United States,Divorced
+Engineering,Female,Brazil,Single
+Human Resources,Female,United States,Single
+Accounting,Female,China,Single
+IT,Male,United States,Married
+Finance,Female,United States,Single
+Sales,Male,China,Married
+Accounting,Female,United States,Single
+Sales,Female,Brazil,Married
+IT,Male,United States,Divorced
+Finance,Male,China,Married
+Finance,Male,Brazil,Single
+Human Resources,Male,United States,Divorced
+Sales,Female,Brazil,Single
+IT,Male,Brazil,Single
+Finance,Female,United States,Married
+Finance,Male,Brazil,Married
+Marketing,Male,China,Married
+IT,Male,United States,Divorced
+Marketing,Male,United States,Divorced
+Engineering,Male,China,Single
+Marketing,Female,United States,Married
+IT,Male,United States,Single
+Sales,Male,United States,Divorced
+IT,Male,United States,Divorced
+IT,Female,United States,Single
+Human Resources,Male,Brazil,Single
+IT,Male,United States,Single
+IT,Male,United States,Married
+Engineering,Female,United States,Married
+IT,Female,United States,Divorced
+IT,Female,United States,Divorced
+Finance,Female,United States,Divorced
+Human Resources,Female,United States,Single
+Marketing,Male,United States,Single
+Human Resources,Male,China,Divorced
+Accounting,Female,China,Single
+IT,Male,United States,Single
+IT,Male,China,Single
+IT,Male,Brazil,Single
+Engineering,Male,China,Single
+Accounting,Female,United States,Divorced
+Engineering,Male,United States,Divorced
+Accounting,Male,China,Single
+Accounting,Female,United States,Single
+Accounting,Female,China,Divorced
+Finance,Female,United States,Single
+Engineering,Female,United States,Divorced
+Engineering,Female,United States,Married
+Marketing,Male,China,Divorced
+Engineering,Male,United States,Married
+Engineering,Male,China,Single
+Human Resources,Male,United States,Married
+Finance,Female,China,Married
+IT,Male,Brazil,Single
+Finance,Female,United States,Divorced
+Sales,Female,United States,Married
+Human Resources,Female,Brazil,Single
+Marketing,Female,United States,Married
+IT,Female,United States,Single
+Accounting,Female,United States,Divorced
+Sales,Female,United States,Single
+Engineering,Female,United States,Married
+Marketing,Female,United States,Married
+Sales,Male,United States,Single
+Human Resources,Female,United States,Single
+Engineering,Male,China,Married
+Sales,Male,United States,Married
+Finance,Female,United States,Married
+Engineering,Male,United States,Divorced
+Engineering,Female,United States,Married
+Marketing,Male,United States,Divorced
+Marketing,Male,United States,Married
+Human Resources,Female,United States,Divorced
+Accounting,Female,United States,Married
+Marketing,Female,China,Single
+Finance,Male,United States,Married
+Marketing,Female,China,Married
+Engineering,Female,China,Married
+Sales,Female,China,Divorced
+Marketing,Male,Brazil,Divorced
+Marketing,Male,China,Married
+Engineering,Male,Brazil,Divorced
+Engineering,Male,China,Single
+IT,Male,Brazil,Single
+IT,Male,China,Single
+Engineering,Female,United States,Divorced
+Sales,Female,Brazil,Married
+IT,Male,United States,Single
+Engineering,Male,United States,Married
+IT,Female,United States,Single
+Finance,Female,United States,Single
+Human Resources,Female,Brazil,Single
+Finance,Female,United States,Single
+IT,Male,United States,Divorced
+Human Resources,Female,United States,Single
+IT,Male,United States,Single
+Human Resources,Female,United States,Divorced
+Accounting,Female,United States,Divorced
+Human Resources,Female,United States,Divorced
+Marketing,Male,United States,Divorced
+Human Resources,Male,Brazil,Divorced
+Marketing,Male,United States,Single
+Human Resources,Male,United States,Married
+Engineering,Male,United States,Single
+Marketing,Male,China,Single
+Accounting,Male,Brazil,Married
+Finance,Female,United States,Married
+Finance,Male,Brazil,Divorced
+Sales,Male,United States,Married
+IT,Male,United States,Divorced
+IT,Female,United States,Divorced
+Sales,Female,China,Divorced
+IT,Male,United States,Single
+Marketing,Male,China,Married
+Sales,Female,China,Single
+Sales,Female,United States,Divorced
+Marketing,Female,United States,Single
+Sales,Female,Brazil,Divorced
+Marketing,Female,China,Married
+Finance,Female,United States,Married
+Finance,Male,United States,Married
+IT,Female,United States,Single
+Accounting,Female,United States,Divorced
+IT,Female,Brazil,Married
+Finance,Female,United States,Divorced
+Sales,Male,United States,Single
+Engineering,Male,United States,Divorced
+Accounting,Female,United States,Married
+Marketing,Female,United States,Married
+Finance,Female,United States,Single
+Marketing,Female,United States,Divorced
+Engineering,Female,Brazil,Single
+Sales,Female,China,Single
+IT,Male,United States,Married
+IT,Female,United States,Divorced
+Accounting,Female,China,Single
+Accounting,Male,United States,Divorced
+Finance,Female,United States,Married
+Engineering,Female,United States,Married
+Sales,Male,United States,Divorced
+IT,Male,United States,Married
+Finance,Female,United States,Single
+Accounting,Female,United States,Single
+IT,Male,United States,Single
+Finance,Male,United States,Married
+Human Resources,Male,China,Divorced
+Marketing,Female,United States,Married
+IT,Female,United States,Divorced
+Sales,Male,United States,Divorced
+Finance,Female,China,Married
+IT,Female,United States,Married
+IT,Male,United States,Divorced
+Sales,Male,China,Married
+Accounting,Female,Brazil,Divorced
+Engineering,Female,United States,Married
+Sales,Male,United States,Single
+Engineering,Male,United States,Single
+IT,Male,United States,Single
+Marketing,Male,United States,Divorced
+Marketing,Male,United States,Divorced
+Finance,Female,United States,Married
+IT,Male,United States,Married
+Accounting,Female,United States,Married
+Human Resources,Male,United States,Divorced
+Human Resources,Female,Brazil,Divorced
+Engineering,Male,United States,Divorced
+Sales,Female,United States,Single
+Sales,Male,China,Divorced
+Sales,Female,United States,Single
+Engineering,Female,United States,Divorced
+Finance,Female,United States,Divorced
+Accounting,Female,United States,Married
+Finance,Male,United States,Divorced
+Sales,Female,United States,Single
+Sales,Female,United States,Single
+Marketing,Female,United States,Divorced
+IT,Female,China,Divorced
+IT,Female,United States,Divorced
+Finance,Female,United States,Divorced
+IT,Male,United States,Married
+Marketing,Female,United States,Single
+IT,Male,United States,Married
+IT,Male,United States,Divorced
+Accounting,Female,United States,Married
+Human Resources,Female,United States,Divorced
+Accounting,Male,United States,Single
+Marketing,Male,Brazil,Single
+Marketing,Male,United States,Divorced
+Human Resources,Female,United States,Single
+Sales,Female,United States,Married
+Marketing,Female,United States,Married
+Finance,Female,China,Married
+Accounting,Female,United States,Divorced
+Finance,Female,China,Married
+Sales,Male,China,Divorced
+Marketing,Female,Brazil,Married
+Finance,Female,United States,Married
+Accounting,Female,United States,Single
+Accounting,Female,United States,Married
+Marketing,Female,China,Single
+Marketing,Female,United States,Married
+Marketing,Female,United States,Single
+Accounting,Male,China,Single
+Sales,Female,United States,Divorced
+IT,Female,Brazil,Divorced
+Engineering,Female,United States,Single
+Marketing,Male,United States,Divorced
+Marketing,Male,United States,Single
+Sales,Male,United States,Single
+IT,Male,United States,Married
+Human Resources,Female,United States,Married
+Human Resources,Female,Brazil,Single
+Engineering,Male,United States,Single
+Marketing,Female,China,Divorced
+IT,Male,United States,Married
+Accounting,Female,United States,Married
+Accounting,Female,United States,Married
+Finance,Male,China,Married
+Finance,Male,United States,Single
+Human Resources,Male,China,Divorced
+IT,Male,United States,Married
+Engineering,Female,China,Divorced
+Marketing,Male,United States,Divorced
+IT,Female,United States,Single
+Human Resources,Female,United States,Married
+Engineering,Female,United States,Married
+Marketing,Male,China,Single
+IT,Male,United States,Single
+Engineering,Female,China,Married
+Marketing,Male,United States,Divorced
+IT,Female,Brazil,Single
+Engineering,Female,China,Single
+Sales,Female,United States,Single
+Engineering,Male,Brazil,Married
+Human Resources,Male,United States,Married
+IT,Male,United States,Single
+Marketing,Female,United States,Married
+Sales,Male,United States,Married
+Finance,Male,United States,Married
+Engineering,Male,United States,Single
+Human Resources,Female,Brazil,Divorced
+IT,Male,United States,Divorced
+IT,Male,Brazil,Married
+Sales,Female,Brazil,Single
+Accounting,Male,United States,Divorced
+Engineering,Male,Brazil,Single
+IT,Male,United States,Married
+Engineering,Male,United States,Single
+Accounting,Male,United States,Divorced
+Human Resources,Male,United States,Divorced
+IT,Male,United States,Divorced
+Marketing,Male,China,Single
+Human Resources,Male,China,Single
+IT,Female,United States,Married
+Accounting,Female,China,Married
+Engineering,Female,United States,Married
+Sales,Female,Brazil,Divorced
+Engineering,Female,Brazil,Married
+Human Resources,Female,China,Single
+Sales,Female,China,Married
+Human Resources,Male,United States,Married
+Sales,Female,United States,Single
+Sales,Female,United States,Single
+Human Resources,Male,United States,Single
+Human Resources,Female,China,Divorced
+IT,Female,United States,Married
+IT,Female,United States,Divorced
+Accounting,Female,United States,Married
+Finance,Male,United States,Single
+Engineering,Female,United States,Single
+Engineering,Male,Brazil,Married
+Human Resources,Female,United States,Single
+Engineering,Female,China,Divorced
+Human Resources,Male,United States,Married
+IT,Female,United States,Single
+IT,Male,China,Single
+Accounting,Male,China,Divorced
+Sales,Female,United States,Married
+Sales,Female,China,Single
+Sales,Female,United States,Divorced
+IT,Male,United States,Single
+IT,Female,United States,Married
+Engineering,Male,United States,Single
+IT,Male,United States,Divorced
+Engineering,Female,United States,Divorced
+IT,Female,China,Married
+Marketing,Female,United States,Divorced
+Finance,Female,China,Single
+Finance,Female,Brazil,Married
+Human Resources,Male,United States,Married
+Human Resources,Male,Brazil,Single
+Finance,Female,China,Divorced
+Sales,Male,United States,Divorced
+Finance,Male,United States,Married
+Engineering,Female,United States,Divorced
+Finance,Male,China,Married
+Finance,Male,United States,Married
+Human Resources,Female,United States,Married
+Sales,Male,China,Married
+IT,Male,United States,Divorced
+Human Resources,Male,United States,Divorced
+IT,Male,China,Single
+Accounting,Male,United States,Married
+Finance,Female,United States,Married
+Engineering,Female,Brazil,Married
+Accounting,Female,United States,Single
+Sales,Male,United States,Divorced
+IT,Female,United States,Divorced
+Marketing,Female,United States,Single
+Human Resources,Female,United States,Single
+Marketing,Male,United States,Divorced
+Sales,Male,Brazil,Divorced
+Accounting,Female,United States,Divorced
+IT,Male,United States,Divorced
+Engineering,Female,Brazil,Divorced
+Finance,Female,United States,Married
+IT,Female,United States,Single
+IT,Female,United States,Married
+Marketing,Male,United States,Single
+IT,Male,United States,Married
+Finance,Male,China,Divorced
+Human Resources,Female,United States,Married
+IT,Male,Brazil,Divorced
+IT,Female,China,Single
+IT,Female,Brazil,Divorced
+Finance,Male,United States,Single
+Finance,Female,China,Divorced
+IT,Female,China,Single
+Sales,Female,United States,Divorced
+IT,Female,United States,Divorced
+Engineering,Female,United States,Single
+Marketing,Female,United States,Married
+Engineering,Male,United States,Divorced
+IT,Female,United States,Married
+Engineering,Male,United States,Single
+Engineering,Male,United States,Single
+Engineering,Male,United States,Married
+Marketing,Female,United States,Divorced
+Engineering,Female,China,Married
+Engineering,Female,Brazil,Married
+Human Resources,Female,United States,Divorced
+IT,Female,China,Married
+IT,Female,United States,Divorced
+Human Resources,Male,United States,Divorced
+Finance,Male,United States,Married
+Sales,Female,Brazil,Divorced
+Human Resources,Male,China,Married
+Accounting,Male,United States,Single
+Sales,Male,United States,Divorced
+IT,Male,Brazil,Married
+Human Resources,Female,United States,Married
+Engineering,Male,United States,Single
+Sales,Female,China,Divorced
+Sales,Male,Brazil,Married
+Marketing,Male,China,Divorced
+IT,Female,China,Divorced
+Human Resources,Male,United States,Single
+IT,Female,United States,Married
+Engineering,Male,United States,Married
+IT,Female,United States,Divorced
+Marketing,Male,United States,Divorced
+Accounting,Female,United States,Single
+Marketing,Female,Brazil,Single
+Human Resources,Female,China,Married
+IT,Male,China,Single
+IT,Male,United States,Single
+Sales,Female,China,Single
+Engineering,Male,United States,Married
+IT,Male,United States,Divorced
+Engineering,Male,United States,Divorced
+Finance,Female,Brazil,Divorced
+Human Resources,Female,United States,Divorced
+Marketing,Female,United States,Divorced
+IT,Male,United States,Divorced
+IT,Female,China,Married
+Sales,Male,China,Divorced
+IT,Male,China,Single
+Sales,Female,United States,Divorced
+Accounting,Male,China,Single
+Sales,Male,Brazil,Married
+Sales,Male,United States,Married
+Engineering,Female,Brazil,Married
+Marketing,Male,United States,Married
+Marketing,Female,Brazil,Married
+Finance,Male,United States,Divorced
+IT,Female,Brazil,Divorced
+Human Resources,Male,United States,Divorced
+IT,Female,United States,Married
+Marketing,Male,United States,Single
+Sales,Male,China,Single
+Human Resources,Female,Brazil,Married
+IT,Female,United States,Divorced
+IT,Male,China,Married
+Human Resources,Female,United States,Single
+Human Resources,Female,United States,Married
+Human Resources,Male,United States,Divorced
+IT,Female,United States,Married
+Marketing,Male,China,Married
+Human Resources,Female,United States,Divorced
+Sales,Male,United States,Married
+Human Resources,Male,United States,Divorced
+Sales,Male,United States,Single
+Finance,Female,China,Single
+Human Resources,Female,United States,Single
+Sales,Female,United States,Married
+Engineering,Male,United States,Divorced
+Marketing,Female,United States,Single
+IT,Male,United States,Divorced
+Accounting,Male,United States,Single
+Human Resources,Male,United States,Married
+Accounting,Female,United States,Single
+Sales,Female,United States,Single
+Sales,Female,Brazil,Single
+IT,Female,United States,Married
+Engineering,Female,China,Married
+Human Resources,Female,Brazil,Divorced
+Finance,Female,Brazil,Married
+Sales,Male,United States,Single
+Sales,Male,United States,Divorced
+Sales,Female,United States,Single
+Finance,Male,United States,Single
+Marketing,Female,Brazil,Married
+IT,Female,United States,Single
+Engineering,Male,Brazil,Single
+Sales,Female,Brazil,Married
+Human Resources,Female,United States,Divorced
+Sales,Male,United States,Single
+Marketing,Female,China,Divorced
+Sales,Male,Brazil,Married
+IT,Male,United States,Single
+Sales,Male,United States,Divorced
+Sales,Female,United States,Divorced
+Finance,Male,United States,Divorced
+Finance,Female,United States,Divorced
+Accounting,Female,United States,Divorced
+Accounting,Female,United States,Single
+Engineering,Male,United States,Divorced
+IT,Male,United States,Married
+Human Resources,Female,Brazil,Divorced
+IT,Female,United States,Single
+Human Resources,Male,Brazil,Married
+Human Resources,Male,United States,Single
+Accounting,Male,United States,Single
+IT,Male,China,Single
+Sales,Male,United States,Single
+Human Resources,Male,United States,Single
+Human Resources,Female,China,Divorced
+Finance,Female,China,Single
+Accounting,Male,United States,Single
+IT,Male,Brazil,Single
+Finance,Male,United States,Single
+Sales,Female,United States,Married
+IT,Female,China,Single
+Finance,Male,United States,Divorced
+Human Resources,Female,Brazil,Married
+IT,Female,United States,Married
+Human Resources,Female,United States,Married
+IT,Male,United States,Divorced
+Accounting,Female,United States,Divorced
+Finance,Male,United States,Married
+Sales,Male,United States,Married
+Accounting,Male,United States,Divorced
+Accounting,Male,China,Divorced
+IT,Female,United States,Single
+Marketing,Male,United States,Single
+Engineering,Female,United States,Single
+Human Resources,Male,China,Married
+IT,Male,Brazil,Married
+IT,Female,United States,Divorced
+Marketing,Male,Brazil,Single
+Marketing,Male,China,Divorced
+IT,Male,United States,Single
+IT,Male,United States,Single
+IT,Female,United States,Married
+Human Resources,Male,United States,Divorced
+Engineering,Female,China,Married
+Accounting,Male,United States,Single
+Accounting,Female,United States,Single
+IT,Male,United States,Married
+Accounting,Female,China,Married
+Marketing,Female,United States,Single
+IT,Female,United States,Married
+Marketing,Male,China,Single
+Sales,Female,China,Single
+IT,Female,United States,Single
+Finance,Male,United States,Divorced
+Engineering,Female,China,Single
+Sales,Female,United States,Divorced
+Sales,Female,United States,Divorced
+IT,Male,United States,Single
+Human Resources,Male,Brazil,Married
+IT,Male,United States,Divorced
+IT,Female,United States,Single
+IT,Female,United States,Single
+Marketing,Male,United States,Single
+Finance,Female,China,Divorced
+Marketing,Male,United States,Married
+Finance,Female,China,Divorced
+Accounting,Female,United States,Single
