@@ -1,0 +1,21 @@
+gender,car type,shirt size,class
+m,family,small,C0
+m,sports,medium,C0
+m,sports,medium,C0
+m,sports,large,C0
+m,sports,extra large,C0
+m,sports,extra large,C0
+f,sports,small,C0
+f,sports,small,C0
+f,sports,medium,C0
+f,luxury,large,C0
+m,family,large,C1
+m,family,extra large,C1
+m,family,medium,C1
+m,luxury,extra large,C1
+f,luxury,small,C1
+f,luxury,small,C1
+f,luxury,medium,C1
+f,luxury,medium,C1
+f,luxury,medium,C1
+f,luxury,large,C1
