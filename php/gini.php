@@ -74,6 +74,9 @@
         // "shirtSize" => getGini(parseAttribute($csvData, "shirt size")),
     ];
 
+    //! Hapus Data
+    unlink($location);
+
     header('Content-Type: application/json');
     echo json_encode($response);
 ?>
