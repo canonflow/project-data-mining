@@ -7,8 +7,8 @@
     <div id="wrapper">
         <div class="flex flex-col gap-4 items-center text-sky-900 py-5" id="content">
         <div class="join join-vertical lg:join-horizontal">
-            <button class="btn btn-active btn-neutral join-item btn-wide">Proximity</button>
-            <button class="btn btn-neutral btn-outline join-item btn-wide">Gini</button>
+            <a class="btn btn-active btn-neutral join-item btn-wide">Proximity</a>
+            <a class="btn btn-neutral btn-outline join-item btn-wide" href="./gini.php">Gini</a>
         </div>
             <h1 class="text-4xl font-semibold text-white">Proximity</h1>
             <!-- Card -->
