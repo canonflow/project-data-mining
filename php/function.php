@@ -2,6 +2,10 @@
     $classAttrName;
     $classes;
     $attributes = array();
+    $kuantiAttrResult;
+    define("KUANTITATIF", "kuantitatif");
+    define("KUALITATIF", "kualitatif");
+
     function parseCsv($path) {
         global $classAttrName, $attributes;
         $csvData = array();
@@ -44,6 +48,10 @@
         return $csvData;
     }
 
+    function getKuantiAttrResult() {
+        global $kuantiAttrResult;
+        return $kuantiAttrResult;
+    }
     function getAttributes() {
         global $attributes;
         return $attributes;
@@ -72,6 +80,22 @@
         }
 
         return $val;
+    }
+
+    //* e.g. [50, 60, 70, 80, 90, 100]
+    function getSplitPosition($data, $attr) {
+        $position = array();
+        $listOfValue = $data[$attr];
+        sort($listOfValue);  //* Sort ASC
+        $listOfValue = array_unique($listOfValue);  //* Get just unique value
+        for ($i = 0; $i < count($listOfValue) - 1; $i++) {
+            $temp1 = floatval($listOfValue[$i]);
+            $temp2 = floatval($listOfValue[$i+1]);
+            $calc = abs($temp2 + $temp1) / 2;
+            array_push($position, $calc);
+        }
+
+        return $position;
     }
 
     /*  TODO:
@@ -132,88 +156,145 @@
         $values = array();  //* Nilai utk perhitungan nanti
         $dataAttr = $data[$attr];  //* Data dari kolom tertentu (e.g. gender, car,...)
         $values[$attr] = array();  //* Set key berdasarkan nama kolom
-        $keyCheck = array();
+        // $keyCheck = array();
         $classes = getClasses($data);
         
         //* Make default array key-value-type
-        foreach ($dataAttr as $index => $value) {
-            if (!in_array($value, $keyCheck)) {
-                array_push($keyCheck, $value);
-                $values[$attr][$value] = array();
+        // foreach ($dataAttr as $index => $value) {
+        //     if (!in_array($value, $keyCheck)) {
+        //         array_push($keyCheck, $value);
+        //         $values[$attr][$value] = array();
+        //     }
+        // }
+
+        //* Check whether the value is a numeric or a string
+        if (is_numeric($data[$attr][0])) {
+            $splitPosition = getSplitPosition($data, $attr);
+            $markers = ["<=", ">"];
+            //* Make default array key-value-type
+            foreach ($splitPosition as $position) {
+                $values[$attr][$position] = array();
+
+                //* Position Marker e.g. <= and >
+                $values[$attr][$position] = array();
+                foreach ($markers as $marker) {
+                    $temp = array();
+                    foreach ($classes as $class) {
+                        $temp += [$class => 0];
+                    }
+                    $temp += ["sum" => 0];  //* Utk semua
+                    $values[$attr][$position] += [$marker => $temp];  //* Add Marker and default class's values
+                }
             }
-        }
 
-        $type = getUniqueTypeValue($data, $attr);  //* (e.g. Male, Female)
+            foreach ($dataAttr as $index => $value) {
+                $class = $data[$classAttrName][$index];  //* Ambil class utk tiap value
+                // $values[$attr][$value][$class] = $values[$attr][$value][$class] + 1;
+                // $values[$attr][$value]["sum"] = $values[$attr][$value]["sum"] + 1;
 
-        //* Make default value of key
-        for ($i = 0; $i < count($type); $i++) {
-            // return "a";
-            $classCheck = array();
-            $currClass = $type[$i];  // (e.g. Male, Female)
-
-            foreach ($classes as $class) {
-                $values[$attr][$currClass] += [$class => 0];
+                foreach ($splitPosition as $position) {
+                    if ($value <= $position) {
+                        $values[$attr][$position]["<="][$class] = $values[$attr][$position]["<="][$class] + 1;
+                        $values[$attr][$position]["<="]["sum"] = $values[$attr][$position]["<="]["sum"] + 1;
+                    } else {
+                        $values[$attr][$position][">"][$class] = $values[$attr][$position][">"][$class] + 1;
+                        $values[$attr][$position][">"]["sum"] = $values[$attr][$position][">"]["sum"] + 1;
+                    }
+                    
+                }
             }
 
-            $values[$attr][$currClass] += ["sum" => 0];  //* Utk semua
-
-            //* Make default value dari key
-            // foreach ($dataAttr as $index => $value) {
-            //     $class = $data[$classAttrName][$index];  //* Ambil class utk tiap value
-            //     if ($value == $currClass) {  
-            //         if (!in_array($class, $classCheck)) {
-            //             array_push($classCheck, $class);
-            //             // return $classCheck;
-            //             // return $values;
-            //             // return $values[$attr][$value][$class];
-            //             // $values[$attr][$value][$currClass] = 5;
-            //             $values[$attr][$value] += [$class => 0];
-            //         }
-            //     }
-            // }
-            // $values[$attr][$currClass]
-
+            return $values;
+        } else {
+            $type = getUniqueTypeValue($data, $attr);  //* (e.g. Male, Female)
+            //* Make default array key-value-type
+            foreach ($type as $val) {
+                $values[$attr][$val] = array();
+            }
+    
+            //* Make default value of key
+            for ($i = 0; $i < count($type); $i++) {
+                // return "a";
+                $classCheck = array();
+                $currClass = $type[$i];  // (e.g. Male, Female)
+    
+                foreach ($classes as $class) {
+                    $values[$attr][$currClass] += [$class => 0];
+                }
+    
+                $values[$attr][$currClass] += ["sum" => 0];  //* Utk semua
+            }
+    
+    
+            foreach ($dataAttr as $index => $value) {
+                $class = $data[$classAttrName][$index];  //* Ambil class utk tiap value
+                $values[$attr][$value][$class] = $values[$attr][$value][$class] + 1;
+                $values[$attr][$value]["sum"] = $values[$attr][$value]["sum"] + 1;
+            }
+            return $values;
         }
 
+    }
 
-        foreach ($dataAttr as $index => $value) {
-            $class = $data[$classAttrName][$index];  //* Ambil class utk tiap value
-            $values[$attr][$value][$class] = $values[$attr][$value][$class] + 1;
-            $values[$attr][$value]["sum"] = $values[$attr][$value]["sum"] + 1;
-            // $values[$attr][$value][$class] += 1;
-            //* Check attr-key
-            // if (isset($values[$attr][$value])) {
-            //     //* Kalo key yg berupa class udh ada di array
-            //     if (isset($values[$attr][$value][$class])) {
-            //         $values[$attr][$value][$class] += 1;
-            //     } else {
-            //         $values[$attr][$value][$class] = array();
-            //         $values[$attr][$value][$class] = 2;
-            //     }
-            // }
-            // else {
-            //     $values[$attr][$value] = array();
-            // }
+    function kualiOrKuanti($data, $attr) {
+        // If kuantitatif
+        if (is_numeric($data[$attr][0])) {
+            return KUANTITATIF;
+        } 
 
-            // if (isset($values[$attr][$class])) {
-            //     $values[$attr][$class] += 1;
-            // } else {
-            //     $values[$attr][$class] = 1;
-            // }
-        }
-
-        return $values;
+        return KUALITATIF;
     }
 
     /*
         @param $data => data yg dihasilkan dari fungsi parseAttribute
     */
-    function getGini($data) {
-        global $classes;
+    function getGini($data, $type) {
+        global $classes, $kuantiAttrResult;
         $n = 0;
         $gini = 0;
 
-        //* Get n of 
+        //* If kuantitatif
+        if ($type == KUANTITATIF) {
+            //* Let's say we want to know gini each position
+            $gini = PHP_INT_MAX;
+            $label = "";
+
+            foreach ($data as $lbl => $position) {
+                $n = 0;
+                $label = $lbl;
+                foreach ($position as $attr) {
+                    foreach ($attr as $key) {
+                        $n += $key["sum"];
+                    }
+                    break;
+                }
+                
+                //* Calculate Gini Position
+                foreach ($position as $splitPosition => $attr) {
+                    $giniPosition = 0;  //* Gini each position
+                    foreach ($attr as $child) {
+                        $currGini = 1;
+                        foreach ($classes as $class) {
+                            if ($child[$class] == 0 && $child["sum"] == 0) {
+                                $currGini = $currGini - 0;
+                            } else {
+                                $currGini = $currGini - pow($child[$class] / $child["sum"], 2);
+                            }
+                        }
+                        $giniPosition = $giniPosition + ($child["sum"] / $n) * $currGini;
+                    }
+                    // return $giniPosition;
+
+                    if ($giniPosition < $gini) {
+                        $gini = $giniPosition;
+                        $kuantiAttrResult = $label . " [$splitPosition]";
+                    } 
+                }
+            }
+
+            return round($gini, 3);
+        } else {
+            //* Get n of 
         foreach ($data as $attr) {
             foreach ($attr as $key) {
                 $n += $key["sum"];
@@ -232,6 +313,7 @@
         }
 
         return round($gini, 3);
+        }
     }
 
     // print_r(parseCsv("../files/csv/test.csv"));

@@ -1,0 +1,15 @@
+#output-container {
+    display: none;
+}
+
+#output {
+    word-wrap: break-word;
+    color: rgb(17, 17, 17);
+}
+
+.output-show {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}

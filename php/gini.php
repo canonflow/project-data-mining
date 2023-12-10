@@ -15,7 +15,6 @@
         }
         move_uploaded_file($_FILES['file']['tmp_name'], $location);
         // echo '<img src="'.$location.'" height="100" width="100" />';
-        $msg = "YES";
     }
 
     $csvData = parseCsv($location);
@@ -43,8 +42,13 @@
     $allGini = array();
 
     foreach ($attributes as $attr) {
-        $gini = getGini(parseAttribute($csvData, $attr));
-        $allGini += [$attr => $gini];
+        $gini = getGini(parseAttribute($csvData, $attr), kualiOrKuanti($csvData, $attr));
+        if (kualiOrKuanti($csvData, $attr) == KUANTITATIF) {
+            $lbl = getKuantiAttrResult();
+            $allGini += [$attr => $gini];
+        } else {
+            $allGini += [$attr => $gini];
+        }
     }
 
     //* Get best split

@@ -1,6 +1,6 @@
 <?php 
     $title = "Gini";
-    $css = array("./css/output.css");
+    $css = array("./css/output.css", "./css/gini.css");
     require_once "./header.php";
 ?>
 <body id="body" class="starting-body">
@@ -12,9 +12,17 @@
             </div>
             <h1 class="text-4xl font-semibold text-white">Gini</h1>
             <!-- Input -->
-            <div class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200">
+            <div class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-white">
                 <input type="file" name="file" id="fileInput" class="file-input">
                 <button onClick="submit()" class="btn btn-primary">Submit</button>
+            </div>
+
+            <!-- Output -->
+            <div id="output-container" class="">
+                <h1 class="text-4xl font-semibold text-white">Output</h1>
+                <div id="output" class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-black">
+
+                </div>
             </div>
         </div>
     </div>
@@ -46,7 +54,8 @@
             var file_data = $('#fileInput').prop('files')[0];   
             var form_data = new FormData();                  
             form_data.append('file', file_data);
-            // alert(form_data);                    
+            // alert(form_data);           
+            // console.log(form_data);         
             $.ajax({
                 url: './php/gini.php', // <-- point to server-side PHP script 
                 dataType: 'json',  // <-- what to expect back from the PHP script, if anything
@@ -56,11 +65,14 @@
                 data: form_data,                         
                 type: 'post',
                 success: function(data){
+
                     // console.log(data);
                     // console.log(php_script_response); // <-- display response from the PHP script, if any
+                    let result = "";
                     //* All Gini
                     for (const [key, val] of Object.entries(data.allGini)) {
                         console.log(`Gini(${key}) = ${val}`);
+                        result += `Gini(${key}) = ${val}<br />`;
                     }
 
                     //* Best Split
@@ -69,14 +81,25 @@
                     //* Kalo ada 1
                     if (Object.keys(data.bestSplit).length == 1) {
                         console.log(`Best attribute to split by Gini is ${key} with Gini = ${data.bestSplit[key]}`);
+                        result += `<br />Best attribute to split by Gini is <strong>${key}</strong> with Gini = <strong>${data.bestSplit[key]}</strong> <br />`
                     } else {
                         let res = "Best attribute to split by Gini are ";
+                        result += "<br />Best attribute to split by Gini are "
                         for (const [key, val] of Object.entries(data.bestSplit)) {
-                            res += `${key}, `;
+                            res += `<strong>${key}</strong>, `;
+                            result += `<strong>${key}</strong>, `;
                             // console.log(`${key}: ${val}`);
                         }
-                        res += `with Gini = ${data.bestSplit[key]}`; 
+                        res += `with Gini = ${data.bestSplit[key[0]]}`; 
+                        result += `with Gini = <strong>${data.bestSplit[key[0]]}</strong>`
                     }
+
+                    const outputContainer = document.getElementById("output-container");
+                    const output =document.getElementById("output");
+                    outputContainer.classList.add('output-show');
+                    outputContainer.style.display = "flex";
+                    output.innerHTML = result;
+                    
                 }
             });
 
