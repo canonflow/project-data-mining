@@ -45,7 +45,7 @@
         $gini = getGini(parseAttribute($csvData, $attr), kualiOrKuanti($csvData, $attr));
         if (kualiOrKuanti($csvData, $attr) == KUANTITATIF) {
             $lbl = getKuantiAttrResult();
-            $allGini += [$attr => $gini];
+            $allGini += [$lbl => $gini];
         } else {
             $allGini += [$attr => $gini];
         }
