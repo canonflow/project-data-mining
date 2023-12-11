@@ -1,6 +1,6 @@
 <?php 
     $title = "Gini";
-    $css = array("./css/output.css", "./css/gini.css");
+    $css = array("./css/output.css", "./css/gini.css", "./css/proximity.css");
     require_once "./header.php";
 ?>
 <body id="body" class="starting-body">
@@ -52,6 +52,18 @@
     </script>
     <script>
         let saveData;
+        //* Sweet Alert
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-right',
+            iconColor: 'white',
+            customClass: {
+                popup: 'colored-toast'
+            },
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true
+        });
         const saveResult = () => {
             saveData = JSON.stringify(saveData);
 
@@ -63,6 +75,11 @@
                 },
                 success: function(data) {
                     window.location.href = data.file;
+                    // Kasih alert
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Berhasil mengunduh hasil perhitungan GINI 😎'
+                    });
                     console.log(data);
                 }
             });
@@ -82,6 +99,11 @@
                 data: form_data,                         
                 type: 'post',
                 success: function(data){
+                    // Kasih alert
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Berhasil menghitung Best Split dengan GINI 😄'
+                    });
 
                     saveData = data.data;
                     console.log(saveData);

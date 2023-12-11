@@ -23,26 +23,10 @@
     }
 
     $csvData = parseCsv($location);
-    // $response = array("csv" => $csvData);
-    // header('Content-Type: application/json');
-    // echo json_encode($response);
-    // return;
     
     $classes = getClasses($csvData);
     $attributes = getAttributes();
-    // $gender = parseAttribute($csvData, "gender");
-    // $giniGender = getGini($gender);
-    // $car = parseAttribute($csvData, "car");
-    // $giniCar = getGini($car);
 
-    // $response = [
-    //     "csv" => $csvData,
-    //     "class" => $classes,
-    //     "gender" => $gender,
-    //     "car" => $car,
-    //     "giniGender" => $giniGender,
-    //     "giniCar" => $giniCar
-    // ];
     //* Get all Gini
     $allGini = array();
 
@@ -81,9 +65,6 @@
         "allGini" => $allGini,
         "bestSplit" => $bestSplit,
         "data" => $data
-        // "gender" => getGini(parseAttribute($csvData, "gender")),
-        // "carType" => getGini(parseAttribute($csvData, "car type")),
-        // "shirtSize" => getGini(parseAttribute($csvData, "shirt size")),
     ];
 
     //! Hapus Data
