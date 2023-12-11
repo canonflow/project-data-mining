@@ -1,5 +1,10 @@
 <?php 
     require("./function.php");
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('HTTP/1.1 405 Method Not Allowed');
+        echo 'Method Not Allowed';
+        exit;
+    }
 
     //* Error
     if($_FILES['file']['name'] != ''){
@@ -51,6 +56,8 @@
         }
     }
 
+    $data = getHeaderAndValue();
+
     //* Get best split
     array_multisort($allGini, SORT_ASC);  // Sort ASC buat cari nilai impurity terkecil
 
@@ -73,6 +80,7 @@
         "attributes" => $attributes,
         "allGini" => $allGini,
         "bestSplit" => $bestSplit,
+        "data" => $data
         // "gender" => getGini(parseAttribute($csvData, "gender")),
         // "carType" => getGini(parseAttribute($csvData, "car type")),
         // "shirtSize" => getGini(parseAttribute($csvData, "shirt size")),

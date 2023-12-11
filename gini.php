@@ -23,6 +23,7 @@
                 <div id="output" class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-black">
 
                 </div>
+                <button class="btn btn-outline btn-accent" onClick="saveResult()">Download Result</button>
             </div>
         </div>
     </div>
@@ -50,6 +51,22 @@
         const vanta = createVanta();
     </script>
     <script>
+        let saveData;
+        const saveResult = () => {
+            saveData = JSON.stringify(saveData);
+
+            $.ajax({
+                url: 'giniSave.php',
+                method: 'post',
+                data: {
+                    data: saveData,   
+                },
+                success: function(data) {
+                    window.location.href = data.file;
+                    console.log(data);
+                }
+            });
+        }
         const submit = () => {
             var file_data = $('#fileInput').prop('files')[0];   
             var form_data = new FormData();                  
@@ -66,7 +83,8 @@
                 type: 'post',
                 success: function(data){
 
-                    // console.log(data);
+                    saveData = data.data;
+                    console.log(saveData);
                     // console.log(php_script_response); // <-- display response from the PHP script, if any
                     let result = "";
                     //* All Gini

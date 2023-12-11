@@ -3,6 +3,9 @@
     $classes;
     $attributes = array();
     $kuantiAttrResult;
+    $saveDataHeader = array();
+    $saveDataValue = array();
+    $tst = array(1,2,3,4,5);
     define("KUANTITATIF", "kuantitatif");
     define("KUALITATIF", "kualitatif");
 
@@ -203,7 +206,6 @@
                     
                 }
             }
-
             return $values;
         } else {
             $type = getUniqueTypeValue($data, $attr);  //* (e.g. Male, Female)
@@ -245,11 +247,19 @@
         return KUALITATIF;
     }
 
+    function getHeaderAndValue() {
+        global $saveDataHeader, $saveDataValue;
+        return [
+            "header" => $saveDataHeader,
+            "values" => $saveDataValue
+        ];
+    }
+
     /*
         @param $data => data yg dihasilkan dari fungsi parseAttribute
     */
     function getGini($data, $type) {
-        global $classes, $kuantiAttrResult;
+        global $classes, $kuantiAttrResult, $saveDataHeader, $saveDataValue;
         $n = 0;
         $gini = 0;
 
@@ -291,28 +301,44 @@
                     } 
                 }
             }
-
+            // $saveData += [$kuantiAttrResult => round($gini, 3)];
+            // $tempData = array();
+            // // $tempData[$kuantiAttrResult] = round($gini, 3);
+            // $tempData += [$kuantiAttrResult => round($gini, 3)];
+            // $saveData[] = 2;
+            $saveDataHeader[] = $kuantiAttrResult;
+            $saveDataValue[] = round($gini, 3);
             return round($gini, 3);
         } else {
+            $label = "";
             //* Get n of 
-        foreach ($data as $attr) {
-            foreach ($attr as $key) {
-                $n += $key["sum"];
-            }
-        }
-
-        //* Calculale
-        foreach ($data as $attr) {
-            foreach ($attr as $child) {
-                $currGini = 1;
-                foreach ($classes as $class) {
-                    $currGini = $currGini - pow($child[$class] / $child["sum"], 2);
+            foreach ($data as $lbl => $attr) {
+                $label = $lbl;
+                foreach ($attr as $key) {
+                    $n += $key["sum"];
                 }
-                $gini = $gini + ($child["sum"] / $n) * $currGini;
             }
-        }
 
-        return round($gini, 3);
+            //* Calculale
+            foreach ($data as $attr) {
+                foreach ($attr as $child) {
+                    $currGini = 1;
+                    foreach ($classes as $class) {
+                        $currGini = $currGini - pow($child[$class] / $child["sum"], 2);
+                    }
+                    $gini = $gini + ($child["sum"] / $n) * $currGini;
+                }
+            }
+            
+            // $saveData += [$attr => round($gini, 3)];
+            // $tempData = array();
+            // // $tempData[$label] = round($gini, 3);
+            // $tempData += [$label => round($gini, 3)];
+            // // $saveData[] = $tempData;
+            // array_push($saveData, 1);
+            $saveDataHeader[] = $label;
+            $saveDataValue[] = round($gini, 3);
+            return round($gini, 3);
         }
     }
 
