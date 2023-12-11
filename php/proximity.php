@@ -9,6 +9,22 @@
     $euclidean = array();  //* 2 dimensi
     $cityBlok = array();  //* 2 dimensi
     $supremum = array(); //* 2 dimensi
+    //* Kalo pake file input
+    if($_FILES['file']['name'] != ''){
+        $test = explode('.', $_FILES['file']['name']);
+        $extension = end($test);    
+        $name = rand(100,999).'.'.$extension;
+        $directory = 'uploads/';
+    
+        $location = 'uploads/'.$name;
+        
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+        move_uploaded_file($_FILES['file']['tmp_name'], $location);
+        // echo '<img src="'.$location.'" height="100" width="100" />';
+    }
+
     $data = json_decode($_POST["data"], false);  //* Data yg diterima berupa JSON
     $length = count($data);
 

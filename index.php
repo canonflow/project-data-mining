@@ -11,7 +11,13 @@
             <a class="btn btn-neutral btn-outline join-item btn-wide" href="./gini.php">Gini</a>
         </div>
             <h1 class="text-4xl font-semibold text-white">Proximity</h1>
-            <!-- Card -->
+            <!-- Card File Input -->
+            <div class="max-w-xl border-stone-200 rounded-lg px-5 py-10 bg-slate-200">
+                <input type="file" name="file" id="fileInput" class="file-input text-white">
+                <button onClick="submit()" class="btn btn-primary">Submit</button>
+            </div>
+
+            <!-- Card Manual -->
             <div class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200">
                 <!-- Inisialisasi -->
                 <div class="flex flex-col gap-4">
@@ -152,6 +158,27 @@
             timer: 2500,
             timerProgressBar: true
         });
+
+        const submit = () => {
+            var file_data = $('#fileInput').prop('files')[0];   
+            var form_data = new FormData();                  
+            form_data.append('file', file_data);
+
+            console.log(form_data);
+
+            $.ajax({
+                url: "php/proximity.php",
+                method: "post",
+                dataType: 'json',  // <-- what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function(data) {
+                    console.log(data);
+                }
+            })
+        }
 
         // TODO: Menentukkan jumlah titik yg ada (min: 2) dan banyak data (min: 1)
         const init = () => {

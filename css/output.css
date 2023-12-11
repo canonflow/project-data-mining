@@ -939,13 +939,6 @@ html{
     background-color: hsl(var(--pf) / var(--tw-bg-opacity));
   }
 
-  .btn-secondary:hover{
-    --tw-border-opacity: 1;
-    border-color: hsl(var(--sf) / var(--tw-border-opacity));
-    --tw-bg-opacity: 1;
-    background-color: hsl(var(--sf) / var(--tw-bg-opacity));
-  }
-
   .btn-accent:hover{
     --tw-border-opacity: 1;
     border-color: hsl(var(--af) / var(--tw-border-opacity));
@@ -1386,16 +1379,6 @@ html{
   border-color: hsl(var(--pf) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: hsl(var(--pf) / var(--tw-bg-opacity));
-}
-
-.btn-secondary{
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--s) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--s) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--sc) / var(--tw-text-opacity));
-  outline-color: hsl(var(--s) / 1);
 }
 
 .btn-secondary.btn-active{
@@ -2464,6 +2447,10 @@ details.collapse summary::-webkit-details-marker{
   margin-top: 2rem;
 }
 
+.ml-5{
+  margin-left: 1.25rem;
+}
+
 .flex{
   display: flex;
 }
@@ -2500,12 +2487,20 @@ details.collapse summary::-webkit-details-marker{
   align-items: center;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .gap-3{
   gap: 0.75rem;
 }
 
 .gap-4{
   gap: 1rem;
+}
+
+.gap-10{
+  gap: 2.5rem;
 }
 
 .overflow-auto{
