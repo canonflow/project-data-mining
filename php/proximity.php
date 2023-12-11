@@ -5,28 +5,65 @@
         echo 'Method Not Allowed';
         exit;
     }
+    
+    $isFileFinished = false;
+    $data = array();
+    $length = 0;
+    $label = array();
+
+    //* Read CSV for Proximity
+    /*
+        $data = [
+            [1,2,3],
+            [4,5,6]
+        ]
+        but the value will be string, so we can cast it later
+    */
+    function readCSV($path) {
+        global $label;
+        $data = array();
+        if (($handle = fopen($path,"r")) !== FALSE) {
+            while(($row = fgetcsv($handle)) !== FALSE) {
+                //* Ambil labelnya
+                $label[] = $row[0];
+                $data[] = array_slice($row, 1);
+            }
+        }
+        fclose($handle);
+
+        return $data;
+    }
 
     $euclidean = array();  //* 2 dimensi
     $cityBlok = array();  //* 2 dimensi
     $supremum = array(); //* 2 dimensi
     //* Kalo pake file input
-    if($_FILES['file']['name'] != ''){
-        $test = explode('.', $_FILES['file']['name']);
-        $extension = end($test);    
-        $name = rand(100,999).'.'.$extension;
-        $directory = 'uploads/';
-    
-        $location = 'uploads/'.$name;
+    if (isset($_FILES['file']['name'])) {
+        if($_FILES['file']['name'] != ''){
+            $isFileFinished = true;
+            $test = explode('.', $_FILES['file']['name']);
+            $extension = end($test);    
+            $name = rand(100,999).'.'.$extension;
+            $directory = 'uploads/';
         
-        if (!is_dir($directory)) {
-            mkdir($directory, 0755, true);
+            $location = 'uploads/'.$name;
+            
+            if (!is_dir($directory)) {
+                mkdir($directory, 0755, true);
+            }
+            move_uploaded_file($_FILES['file']['tmp_name'], $location);
+            // echo '<img src="'.$location.'" height="100" width="100" />';
+            $data = readCSV($location);
+            $length = count($data);
+        } 
+    } else {
+        $data = json_decode($_POST["data"], false);  //* Data yg diterima berupa JSON
+        $length = count($data);
+        for ($i = 1; $i <= $length; $i++) {
+            $label[] = "P".$i;
         }
-        move_uploaded_file($_FILES['file']['tmp_name'], $location);
-        // echo '<img src="'.$location.'" height="100" width="100" />';
     }
 
-    $data = json_decode($_POST["data"], false);  //* Data yg diterima berupa JSON
-    $length = count($data);
 
     //* Isi nilai awal
     for ($i = 0; $i < $length; $i++) {
@@ -51,11 +88,11 @@
 
             //* data
             for ($i = 0; $i < count($data1); $i++) {
-                $resEuclidean += pow(abs($data1[$i] - $data2[$i]), 2);
-                $resCityBlok += abs($data1[$i] - $data2[$i]);
+                $resEuclidean += pow(abs(floatval($data1[$i]) - floatval($data2[$i])), 2);
+                $resCityBlok += abs(floatval($data1[$i]) - floatval($data2[$i]));
 
                 //* Supremum maximum checking
-                $temp = abs($data1[$i] - $data2[$i]);
+                $temp = abs(floatval($data1[$i]) - floatval($data2[$i]));
                 if ($temp > $resSupremum) $resSupremum = $temp;
             }
 
@@ -74,11 +111,16 @@
         }
     }
 
+    if ($isFileFinished) {
+        unlink($location);
+    }
+
     //* Data yg akan dikirim berupa array associate
     $response = array(
         "euclidean" => $euclidean,
         "cityBlok" => $cityBlok,
         "supremum" => $supremum,
+        "label" => $label
     );
 
     //* Response berupa JSON

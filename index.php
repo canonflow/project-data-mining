@@ -119,6 +119,8 @@
                 </div>
             </div>
             </dialog>
+            <!-- Button download -->
+            <button class="btn btn-wide btn-outline btn-warning hidden" onclick="download()" id="btn_download">Download as XLSX</button>
         </div>
     </div>
 
@@ -146,6 +148,7 @@
     <script>
         let banyakData = 1;
         let isInit = false;
+        let label, euclideanData, cityBlokData, supremumData;
         //* Sweet Alert
         const Toast = Swal.mixin({
             toast: true,
@@ -159,13 +162,50 @@
             timerProgressBar: true
         });
 
+        const download = () => {
+            label = JSON.stringify(label);
+            let cityBlokDataJSON = JSON.stringify(cityBlokData);
+            let euclideanDataJSON = JSON.stringify(euclideanData);
+            let supremumDataJSON = JSON.stringify(supremumData);
+            $.ajax({
+                url: 'proximitySave.php',
+                method: 'post',
+                data: {
+                    label: label,  
+                    cityBlok: cityBlokDataJSON,
+                    euclidean: euclideanDataJSON,
+                    supremum: supremumDataJSON
+                },
+                success: function(data) {
+                    window.location.href = data.file;
+                    // Kasih alert
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Berhasil mengunduh hasil perhitungan GINI 😎'
+                    });
+                    console.log(data);
+                }
+            });
+        }
+
         const submit = () => {
             var file_data = $('#fileInput').prop('files')[0];   
             var form_data = new FormData();                  
             form_data.append('file', file_data);
 
             console.log(form_data);
+            //* VANTA SECTION
+            $("#dividerInput").addClass("hidden");
+            $("#input").addClass("hidden");
 
+            if ($("#content").height() + 40 < window.innerHeight) {
+                $("#body").addClass("starting-body");
+            } else {
+                $("#body").removeClass("starting-body");  // Biar height-nya gk 100vh dan vanta bisa responsive
+            }
+            vanta.resize();
+
+            //* AJAX SECTION
             $.ajax({
                 url: "php/proximity.php",
                 method: "post",
@@ -175,7 +215,160 @@
                 processData: false,
                 data: form_data,
                 success: function(data) {
+                    // console.log(data);
+                    let euclidean = data.euclidean;  // 2d
+                    let cityBlok = data.cityBlok; // 2d
+                    let supremum = data.supremum; // 2d
+                    euclideanData = euclidean;
+                    cityBlokData = cityBlok;
+                    supremumData = supremum;
+
+                    label = data.label;
                     console.log(data);
+
+                    // Kasih alert
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Berhasil menghitung Proximity 😄'
+                    });
+
+                    // Tampilkan output
+                    $("#btn_city_blok").removeClass("hidden");
+                    $("#btn_euclidean").removeClass("hidden");
+                    $("#btn_supremum").removeClass("hidden");
+                    $("#btn_download").removeClass("hidden");
+
+                    // ---------------- City Blok ----------------
+                    //* Input
+                    let th = "<th></th>";
+
+                    for (let i = 0; i < cityBlok.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_head_city_blok").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+
+                    //* Output
+                    let items = "";
+                    for (let i = 0; i < cityBlok.length; i++) {
+                        let tr = `<tr class="text-center"><th class="text-lg">P${i+1}</th>`;
+                        for (let j = 0; j < cityBlok[0].length; j++) {
+                            tr += `<td class="text-center">${cityBlok[i][j]}</td>`;
+                        }
+                        tr += '</tr>';
+                        items += tr;
+                    }
+                    $("#output_body_city_blok").html(items);
+
+                    //* Foot
+                    th = "<th></th>";
+
+                    for (let i = 0; i < cityBlok.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_foot_city_blok").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+                    
+                    // ---------------- Euclidean ----------------
+                    //* Input
+                    th = "<th></th>";
+
+                    for (let i = 0; i < euclidean.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_head_euclidean").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+
+                    //* Output
+                    items = "";
+                    for (let i = 0; i < euclidean.length; i++) {
+                        let tr = `<tr class="text-center"><th class="text-lg">P${i+1}</th>`;
+                        for (let j = 0; j < euclidean[0].length; j++) {
+                            tr += `<td class="text-center">${euclidean[i][j]}</td>`;
+                        }
+                        tr += '</tr>';
+                        items += tr;
+                    }
+                    $("#output_body_euclidean").html(items);
+
+                    //* Foot
+                    th = "<th></th>";
+
+                    for (let i = 0; i < euclidean.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_foot_euclidean").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+
+                    // ---------------- Supremum ----------------
+                    //* Input
+                    th = "<th></th>";
+
+                    for (let i = 0; i < supremum.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+ 1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_head_supremum").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+
+                    //* Output
+                    items = "";
+                    for (let i = 0; i < supremum.length; i++) {
+                        let tr = `<tr class="text-center"><th class="text-lg">P${i+1}</th>`;
+                        for (let j = 0; j < supremum[0].length; j++) {
+                            tr += `<td class="text-center">${supremum[i][j]}</td>`;
+                        }
+                        tr += '</tr>';
+                        items += tr;
+                    }
+                    $("#output_body_supremum").html(items);
+
+                    //* Foot
+                    th = "<th></th>";
+
+                    for (let i = 0; i < supremum.length; i++) {
+                        th += `<th class="text-center text-lg">P${i+1}</th>`;
+                    }
+                    th += '<th></th>';
+
+                    $("#output_foot_supremum").html(`
+                        <tr>
+                            ${th}
+                        </tr>
+                    `);
+                    //* Resize - VANTA SECTION
+                    if ($("#content").height() + 40 < window.innerHeight) {
+                        $("#body").addClass("starting-body");
+                    } else {
+                        $("#body").removeClass("starting-body");  // Biar height-nya gk 100vh dan vanta bisa responsive
+                    }
+                    vanta.resize();
+                    // Scroll ke bawah
+                    window.scrollTo(0, document.body.scrollHeight);
                 }
             })
         }
@@ -290,7 +483,12 @@
                     let euclidean = data.euclidean;  // 2d
                     let cityBlok = data.cityBlok; // 2d
                     let supremum = data.supremum; // 2d
+                    euclideanData = euclidean;
+                    cityBlokData = cityBlok;
+                    supremumData = supremum;
+
                     console.log(data);
+                    label = data.label;
 
                     // Kasih alert
                     Toast.fire({
@@ -302,6 +500,7 @@
                     $("#btn_city_blok").removeClass("hidden");
                     $("#btn_euclidean").removeClass("hidden");
                     $("#btn_supremum").removeClass("hidden");
+                    $("#btn_download").removeClass("hidden");
 
                     // ---------------- City Blok ----------------
                     //* Input
