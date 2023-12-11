@@ -181,7 +181,7 @@
                     // Kasih alert
                     Toast.fire({
                         icon: 'success',
-                        title: 'Berhasil mengunduh hasil perhitungan GINI 😎'
+                        title: 'Berhasil mengunduh hasil perhitungan PROXIMITY 😎'
                     });
                     console.log(data);
                 }
