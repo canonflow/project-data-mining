@@ -9,6 +9,7 @@
         <div class="join join-vertical lg:join-horizontal">
             <a class="btn btn-active btn-neutral join-item btn-wide">Proximity</a>
             <a class="btn btn-neutral btn-outline join-item btn-wide" href="./gini.php">Gini</a>
+            <a class="btn btn-outline btn-neutral join-item btn-wide" href="./kmeans.php">K-Means</a>
         </div>
             <h1 class="text-4xl font-semibold text-white">Proximity</h1>
             <!-- Card File Input -->

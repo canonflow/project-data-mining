@@ -9,6 +9,7 @@
             <div class="join join-vertical lg:join-horizontal">
                 <a class="btn btn-outline join-item btn-wide" href="./index.php">Proximity</a>
                 <a class="btn btn-active btn-neutral join-item btn-wide">Gini</a>
+                <a class="btn btn-outline join-item btn-wide" href="./kmeans.php">K-Means</a>
             </div>
             <h1 class="text-4xl font-semibold text-white">Gini</h1>
             <!-- Input -->
