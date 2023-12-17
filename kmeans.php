@@ -111,6 +111,14 @@
                         });
                         return;
                     }
+                    
+                    if (data.error_no_file == 'yes') {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Inputkan file!'
+                        });
+                        return;
+                    }
                     console.log(data);
                 },
                 error: function(xhr) {

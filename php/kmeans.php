@@ -219,6 +219,15 @@
         exit;
     }
 
+    //* If there is no file
+    if (!isset($_FILES['file'])) {
+        header('Content-Type: application/json');
+        echo json_encode([
+            'error_no_file' => 'yes'
+        ]);
+        return;
+    }
+
     if($_FILES['file']['name'] != ''){
         $test = explode('.', $_FILES['file']['name']);
         $extension = end($test);    
@@ -284,7 +293,7 @@
         $clusters = clustering($data, $centroids);
         $currCentroid = calculateCentroid($data, $clusters);
         $checkingCluster = true;
-        
+
         //* Check if there are cluster that didnt have single point / data
         while(checkingCluster($clusters)) {
             $centroids = initialCentroid($data, $numCluster);
