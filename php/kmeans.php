@@ -190,12 +190,25 @@
                     foreach($cluster as $point) {
                         $tempCentroidValue += floatval($values[$point]);
                     }
-                    array_push($centroids[$idx], round($tempCentroidValue/count($cluster), 3));
+
+                    //* Kalo cluster ada anggotanya
+                    if (count($cluster) != 0) {
+                        array_push($centroids[$idx], round($tempCentroidValue/count($cluster), 3));
+                    }
                 }
             }
         }
         
         return $centroids;
+    }
+    
+    function checkingCluster($clusters) {
+        foreach($clusters as $cluster) {
+            if (count($cluster) == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 ?>
 
@@ -270,6 +283,15 @@
     } else {
         $clusters = clustering($data, $centroids);
         $currCentroid = calculateCentroid($data, $clusters);
+        $checkingCluster = true;
+        
+        //* Check if there are cluster that didnt have single point / data
+        while(checkingCluster($clusters)) {
+            $centroids = initialCentroid($data, $numCluster);
+            $clusters = clustering($data, $centroids);
+        }
+        $currCentroid = calculateCentroid($data, $clusters);
+
         $currIteration = 1;
         $maxIteratation = 100;  //* Set the maximum iteration (just in case, u can added it on while loop) -> && $currIteration < $maxIteratation
         while ($currCentroid != $centroids) {
