@@ -112,6 +112,9 @@
                         return;
                     }
                     console.log(data);
+                },
+                error: function(xhr) {
+                    console.log(xhr);
                 }
             });
         };

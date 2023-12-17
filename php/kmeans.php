@@ -65,6 +65,16 @@
         return $classes;
     }
 
+    //TODO: Random initial centroid
+    /*
+        @param $data, $cluster
+        @return array[]
+                initialCentroid: [
+                    [x,y],  // Centroid 0
+                    [x,y],  // Centroid 1
+                    [x,y],  // Centroid 2
+                ]
+    */
     function initialCentroid($data, $cluster) {
         global $classAttrName;  // e.g. label, class
         $initialCentoid = array();
@@ -115,6 +125,78 @@
         }
         return $initialCentoid;
     }
+    
+    //TODO: Mapping all points into cluster based on closest centroid using eudlidean distance
+    /*
+        @param $data, $centroids
+        @return array[]
+                cluster: [
+                    [p0, p2],  // CLuster 0 with Centroid 0
+                    [p1, p3],  // Cluster 1 with Centroid 1
+                ]
+                p0 => 0, index of point in $data
+    */
+    function clustering($data, $centroids) {
+        global $classAttrName;
+
+        //* Initialize clusters
+        $clusters = [];
+        for($i = 0; $i < count($centroids); $i++) {
+            array_push($clusters, array());
+        }
+
+        //* Iterate all points
+        for ($point = 0; $point < count($data[$classAttrName]); $point++) {
+            $value = array();  // [1,2] from current point
+            foreach ($data as $attribute => $values) {
+                if ($attribute != $classAttrName) {
+                    array_push($value, $values[$point]);
+                }
+            }
+
+            //* Check distance between centroid
+            $closestCentroidDistance = PHP_INT_MAX;
+            $closesCentroidIdx = PHP_INT_MAX;
+            foreach($centroids as $idx => $centroid) {
+                $currCentroidDistance = 0.0;
+                for ($i = 0; $i < count($centroid); $i++) {
+                    $currCentroidDistance += pow(abs(floatval($value[$i]) - $centroid[$i]), 2);
+                }
+
+                $currCentroidDistance = sqrt($currCentroidDistance);
+                //* Compare
+                if ($currCentroidDistance < $closestCentroidDistance) {
+                    $closestCentroidDistance = $currCentroidDistance;
+                    $closesCentroidIdx = $idx;
+                }
+            }
+
+            array_push($clusters[$closesCentroidIdx], $point);
+        }
+        return $clusters;
+    }
+
+    function calculateCentroid($data, $clusters) {
+        global $classAttrName;
+        $centroids = [];
+        for ($i = 0; $i < count($clusters); $i++) {
+            array_push($centroids, array());
+        }
+
+        foreach($clusters as $idx => $cluster) {
+            foreach($data as $attribute => $values) {
+                if ($attribute != $classAttrName) {
+                    $tempCentroidValue = 0;
+                    foreach($cluster as $point) {
+                        $tempCentroidValue += floatval($values[$point]);
+                    }
+                    array_push($centroids[$idx], $tempCentroidValue/count($cluster));
+                }
+            }
+        }
+        
+        return $centroids;
+    }
 ?>
 
 <?php 
@@ -144,16 +226,59 @@
     $data = parseCSV($location);
     $attributes = getAttributes();
     $classes = getClasses($data);
-    $initialCentroid = initialCentroid($data, $numCluster);
+    $centroids = initialCentroid($data, $numCluster);
 
     //* Cek apakah jumlah cluster yg dipilih > $jumlah data / titik atau ==
     if ($numCluster > count($data[$classAttrName])) {
+        unlink($location);
         header('Content-Type: application/json');
         echo json_encode([
             'error_num_cluster' => 'yes'
         ]);
         return;
-    } 
+    } else if ($numCluster == count($data[$classAttrName])) {
+        unlink($location);
+        $output = [
+            'Label' => array(),
+            'Vector' => array(),
+            'Cluster Id' => array(),
+            'Cluster Centroid' => array()
+        ];
+
+        //* Iterate all points
+        for ($i = 0; $i < count($data[$classAttrName]); $i++) {
+            //* Add Label
+            array_push($output['Label'], $data[$classAttrName][$i]);
+            //* Add Cluster ID
+            array_push($output['Cluster Id'], $i);
+
+            //* Add Point's Vector
+            $tempVector = array();
+            foreach ($data as $attribute => $values) {
+                if ($attribute != $classAttrName) {
+                    array_push($tempVector, $values[$i]);
+                }
+            }
+            array_push($output['Vector'], join(", ", $tempVector));
+            array_push($output['Cluster Centroid'], join(", ", $tempVector));
+        }
+        header('Content-Type: application/json');
+        echo json_encode([
+            'output' => $output
+        ]);
+        return;
+    } else {
+        $clusters = clustering($data, $centroids);
+        $currCentroid = calculateCentroid($data, $clusters);
+        $currIteration = 1;
+        $maxIteratation = 100;  //* Set the maximum iteration
+        while ($currCentroid != $centroids && $currIteration < $maxIteratation) {
+            $centroids = $currCentroid;
+            $clusters = clustering($data, $currCentroid);
+            $currCentroid = calculateCentroid($data, $clusters);
+            $currIteration++;
+        }
+    }
 
     unlink($location);
     header('Content-Type: application/json');
@@ -161,8 +286,10 @@
         'data' => $data, 
         'attributes' => $attributes, 
         'classes' => $classes, 
-        'centroid' => $initialCentroid,
-        'cluster' => $numCluster,
+        'centroid' => $centroids,
+        'numOfCluster' => $numCluster,
         'classAttrName' => $classAttrName,
+        'clusters' => $clusters,
+        'currentCentroid' => $currCentroid,
     ]);
 ?>
