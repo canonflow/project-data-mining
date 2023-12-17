@@ -190,7 +190,7 @@
                     foreach($cluster as $point) {
                         $tempCentroidValue += floatval($values[$point]);
                     }
-                    array_push($centroids[$idx], $tempCentroidValue/count($cluster));
+                    array_push($centroids[$idx], round($tempCentroidValue/count($cluster), 3));
                 }
             }
         }
@@ -271,8 +271,8 @@
         $clusters = clustering($data, $centroids);
         $currCentroid = calculateCentroid($data, $clusters);
         $currIteration = 1;
-        $maxIteratation = 100;  //* Set the maximum iteration
-        while ($currCentroid != $centroids && $currIteration < $maxIteratation) {
+        $maxIteratation = 100;  //* Set the maximum iteration (just in case, u can added it on while loop) -> && $currIteration < $maxIteratation
+        while ($currCentroid != $centroids) {
             $centroids = $currCentroid;
             $clusters = clustering($data, $currCentroid);
             $currCentroid = calculateCentroid($data, $clusters);
