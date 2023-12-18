@@ -1,6 +1,6 @@
 <?php 
     $title = "Gini";
-    $css = array("./css/output.css", "./css/gini.css", "./css/proximity.css");
+    $css = array("./css/output.css", "./css/gini.css", "./css/proximity.css", "./css/kmeans.css");
     require_once "./header.php";
 ?>
 <body id="body" class="starting-body">
@@ -33,10 +33,26 @@
             <!-- Output -->
             <div id="output-container" class="">
                 <h1 class="text-4xl font-semibold text-white">Output</h1>
-                <div id="output" class="max-w-xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-black">
-
+                <div id="output" class="max-w-3xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-black">
+                    <div class="overflow-auto" style="max-height: 400px;">
+                        <table class="table table-xs table-pin-rows table-pin-cols">
+                            <thead id="outputHeader" class="text-white">
+                                <tr>
+                                    <th>Nama</th>
+                                </tr>
+                            </thead>
+                            <tbody id="outputBody" class="text-slate-500">
+                                <tr>
+                                    <td>Nathan</td>
+                                </tr>
+                                <tr>
+                                    <td>Garzya</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <button class="btn btn-outline btn-accent" onClick="saveResult()">Download Result</button>
+                <button class="btn btn-outline btn-accent" id="downloadResult">Download Result</button>
             </div>
         </div>
     </div>
@@ -96,7 +112,7 @@
             // console.log(form_data);         
             // return;
             $.ajax({
-                url: './php/kmeans.php', // <-- point to server-side PHP script 
+                url: './kmeans-backend.php', // <-- point to server-side PHP script 
                 dataType: 'json',  // <-- what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -112,13 +128,50 @@
                         return;
                     }
                     
-                    if (data.error_no_file == 'yes') {
+                    if (data.error_no_file == 'yes') {  
                         Toast.fire({
                             icon: 'error',
                             title: 'Inputkan file!'
                         });
                         return;
                     }
+
+                    let outputContainer = document.getElementById("output-container");
+                    let buttonDownload = document.getElementById("downloadResult");
+                    let header = document.getElementById("outputHeader");
+                    let body = document.getElementById("outputBody");
+                    outputContainer.classList.add('output-show');
+                    outputContainer.style.display = 'flex';
+                    buttonDownload.onclick = () => window.location.href = data.file;
+
+                    //* Display Data
+                    let headerVal = "<tr>";
+                    for (const head of data.output[0]) {
+                        headerVal += `<th>${head}</th>`;
+                    }
+                    headerVal += "</tr>"
+                    header.innerHTML =headerVal;
+                    
+                    let bodyVal = "";
+                    for (const [idx, values] of data.output) {
+                        // if (idx != 0) {
+                        //     bodyVal += "<tr>";
+                        //     for (const val of values) {
+                        //         bodyVal += `<td>${val}</td>`;
+                        //     }
+                        //     bodyVal += "</tr>";
+                        // }
+                        // console.log(values);
+                    }
+
+                    for (let i = 1; i < data.output.length; i++) {
+                        bodyVal += "<tr>";
+                        for (const val of data.output[i]) {
+                            bodyVal += `<td>${val}</td>`;
+                        }
+                        bodyVal += "</tr>";
+                    }
+                    body.innerHTML = bodyVal;
                     console.log(data);
                 },
                 error: function(xhr) {

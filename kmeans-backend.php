@@ -219,6 +219,9 @@
         exit;
     }
 
+    require_once __DIR__ . '/vendor/autoload.php';
+    use Shuchkin\SimpleXLSXGen;
+
     //* If there is no file
     if (!isset($_FILES['file'])) {
         header('Content-Type: application/json');
@@ -258,37 +261,6 @@
             'error_num_cluster' => 'yes'
         ]);
         return;
-    } else if ($numCluster == count($data[$classAttrName])) {
-        unlink($location);
-        $output = [
-            'Label' => array(),
-            'Vector' => array(),
-            'Cluster Id' => array(),
-            'Cluster Centroid' => array()
-        ];
-
-        //* Iterate all points
-        for ($i = 0; $i < count($data[$classAttrName]); $i++) {
-            //* Add Label
-            array_push($output['Label'], $data[$classAttrName][$i]);
-            //* Add Cluster ID
-            array_push($output['Cluster Id'], $i);
-
-            //* Add Point's Vector
-            $tempVector = array();
-            foreach ($data as $attribute => $values) {
-                if ($attribute != $classAttrName) {
-                    array_push($tempVector, $values[$i]);
-                }
-            }
-            array_push($output['Vector'], join(", ", $tempVector));
-            array_push($output['Cluster Centroid'], join(", ", $tempVector));
-        }
-        header('Content-Type: application/json');
-        echo json_encode([
-            'output' => $output
-        ]);
-        return;
     } else {
         $clusters = clustering($data, $centroids);
         $currCentroid = calculateCentroid($data, $clusters);
@@ -309,6 +281,53 @@
             $currCentroid = calculateCentroid($data, $clusters);
             $currIteration++;
         }
+
+        $output = [];  //* For display in web
+        $outputFile = [];  //* For excel, including styles
+
+        //* Init header output
+        $header = [];
+        $headerFile = [];
+        foreach ($data as $attribute => $values) {
+            array_push($header, $attribute);
+            array_push($headerFile, '<center><b>'.$attribute.'</b></center>');
+        }
+        array_push($output, $header);
+        array_push($outputFile, $headerFile);
+        array_push($output[0], "Cluster");
+        array_push($outputFile[0], '<center><b>'."Cluster".'</b></center>');  // Add Column Cluster
+        array_push($output[0], "Cluster Centroid");
+        array_push($outputFile[0], '<center><b>'."Cluster Centroid".'</b></center>');  // Add Column Cluster Centroid
+
+        //* Insert values
+        for ($point = 0; $point < count($data[$classAttrName]); $point++) {
+            $currPointFile = [];
+            $currPoint = [];
+
+            //* Insert point's values
+            foreach($data as $attribute => $values) {
+                array_push($currPoint, $values[$point]);
+                array_push($currPointFile, $values[$point]);
+            }
+
+            //* Insert Cluster and Cluster Centroi
+            for ($cluster = 0; $cluster < count($clusters); $cluster++) {
+                if (in_array($point, $clusters[$cluster])) {
+                    array_push($currPointFile, '<style bgcolor="#c7ffd6"><center><b>'.$cluster.'</b></center>');  //* Push cluster
+                    array_push($currPoint, $cluster);
+                    $centroidValue = join(", ", $currCentroid[$cluster]);  //* Get Cluster Centroid Value
+                    array_push($currPointFile, $centroidValue);  //* Push cluster
+                    array_push($currPoint, $centroidValue);  //* Push cluster
+                    break;
+                }
+            }
+            array_push($outputFile, $currPointFile);
+            array_push($output, $currPoint);
+        }
+
+        $xlsx = SimpleXLSXGen::fromArray($outputFile);
+        $filename = __DIR__ . '/result-kmeans.xlsx';  //! If the file is exist, it will be overided
+        $xlsx->saveAs($filename);  //! Save the file in server
     }
 
     unlink($location);
@@ -322,5 +341,7 @@
         'classAttrName' => $classAttrName,
         'clusters' => $clusters,
         'currentCentroid' => $currCentroid,
+        'output' => $output,
+        'file' => "result-kmeans.xlsx"
     ]);
 ?>

@@ -625,13 +625,19 @@
                             ${th}
                         </tr>
                     `);
+                    if ($("#content").height() + 40 < window.innerHeight) {
+                        $("#body").addClass("starting-body");
+                    } else {
+                        $("#body").removeClass("starting-body");  // Biar height-nya gk 100vh dan vanta bisa responsive
+                    }
+                    vanta.resize();
 
                     // +40 karena padding atas + bawah = 40
                     // $("canvas").height($("#content").height() + 40);
                     // console.log($("canvas").height());
                     // console.log($("#content").height());
                     // Resize Vanta, kalo pake kode di atas kalo tinggi banget jdi crash
-                    vanta.resize();
+                    // vanta.resize();
                 }
             });
 
