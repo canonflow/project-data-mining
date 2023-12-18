@@ -37,17 +37,8 @@
                     <div class="overflow-auto" style="max-height: 400px;">
                         <table class="table table-xs table-pin-rows table-pin-cols">
                             <thead id="outputHeader" class="text-white">
-                                <tr>
-                                    <th>Nama</th>
-                                </tr>
                             </thead>
                             <tbody id="outputBody" class="text-slate-500">
-                                <tr>
-                                    <td>Nathan</td>
-                                </tr>
-                                <tr>
-                                    <td>Garzya</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -135,6 +126,11 @@
                         });
                         return;
                     }
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Berhasil menghitung K-Means!'
+                    });
 
                     let outputContainer = document.getElementById("output-container");
                     let buttonDownload = document.getElementById("downloadResult");
