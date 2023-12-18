@@ -14,6 +14,7 @@
             <h1 class="text-4xl font-semibold text-white">K-Means</h1>
             <!-- Input -->
             <div class="max-w-2xl border border-stone-200 rounded-lg px-5 py-10 bg-slate-200 text-white">
+                <h3 class="text-xl text-red-500 font-bold text-center" style="margin-bottom: 0.65rem;">Kolom terakhir pada data hanya sebagai IDENTIFIER <br />(tidak masuk perhitungan)</h3>
                 <input type="file" name="file" id="fileInput" class="file-input">
                 <select class="select select-bordered" id="clusterInput">
                     <option disabled selected>Select cluster</option>
